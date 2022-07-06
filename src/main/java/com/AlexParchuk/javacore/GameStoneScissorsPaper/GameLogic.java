@@ -44,7 +44,7 @@ public class GameLogic {
                 continue;
             }
 
-            result = calculateWinner(field);
+            result = calculateWinner();
 
             System.out.print(field.toString() + ": ");
 
@@ -112,14 +112,14 @@ public class GameLogic {
         return Figure.getByValue(random.nextInt(1, 4));
     }
 
-    private int calculateWinner(Field field) {
+    private int calculateWinner() {
 
         int val1 = field.getF1().getChoice(); //user
         int val2 = field.getF2().getChoice(); //ai
 
         if (val1 == val2)
             return 0;
-        else if ((val1 == 1 & val2 == 2) | (val1 == 2 & val2 == 3) | (val1 == 3 & val2 == 1))
+        else if ((val1 == 1 && val2 == 2) | (val1 == 2 && val2 == 3) | (val1 == 3 && val2 == 1))
             return 1;
         else
             return 2;
